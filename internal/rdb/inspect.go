@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/go-redis/redis/v8"
-	"github.com/hibiken/asynq/internal/base"
-	"github.com/hibiken/asynq/internal/errors"
+	"github.com/imumesh18/asynq/internal/base"
+	"github.com/imumesh18/asynq/internal/errors"
 	"github.com/spf13/cast"
 )
 
@@ -228,11 +228,11 @@ func (r *RDB) CurrentStats(qname string) (*Stats, error) {
 		}
 	}
 	stats.Size = size
-	memusg, err := r.memoryUsage(qname)
-	if err != nil {
-		return nil, errors.E(op, errors.CanonicalCode(err), err)
-	}
-	stats.MemoryUsage = memusg
+	// memusg, err := r.memoryUsage(qname)
+	// if err != nil {
+	// 	return nil, errors.E(op, errors.CanonicalCode(err), err)
+	// }
+	stats.MemoryUsage = 0
 	return stats, nil
 }
 

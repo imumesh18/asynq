@@ -10,9 +10,9 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/hibiken/asynq/internal/base"
-	"github.com/hibiken/asynq/internal/rdb"
-	h "github.com/hibiken/asynq/internal/testutil"
+	"github.com/imumesh18/asynq/internal/base"
+	"github.com/imumesh18/asynq/internal/rdb"
+	h "github.com/imumesh18/asynq/internal/testutil"
 )
 
 func TestAggregator(t *testing.T) {

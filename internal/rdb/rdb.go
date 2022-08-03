@@ -13,9 +13,9 @@ import (
 
 	"github.com/go-redis/redis/v8"
 	"github.com/google/uuid"
-	"github.com/hibiken/asynq/internal/base"
-	"github.com/hibiken/asynq/internal/errors"
-	"github.com/hibiken/asynq/internal/timeutil"
+	"github.com/imumesh18/asynq/internal/base"
+	"github.com/imumesh18/asynq/internal/errors"
+	"github.com/imumesh18/asynq/internal/timeutil"
 	"github.com/spf13/cast"
 )
 
@@ -152,7 +152,7 @@ func (r *RDB) Enqueue(ctx context.Context, msg *base.TaskMessage) error {
 var enqueueUniqueCmd = redis.NewScript(`
 local ok = redis.call("SET", KEYS[1], ARGV[1], "NX", "EX", ARGV[2])
 if not ok then
-  return -1 
+  return -1
 end
 if redis.call("EXISTS", KEYS[2]) == 1 then
   return 0
